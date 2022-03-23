@@ -12,48 +12,72 @@
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/css/home.css">
+    
 </head>
 
 <body>
-
+    <div class="logo">
+        <h1>TODO-LIST  <i class="fas fa-list-check"></i> </h1>
+    </div>
     <header>
-        <div class="logo">
-            <h1>TODO-LIST</h1>
-        </div>
+       
         <div class="container">
             <div class="input-box">
-                <form action="/create-task" method="post" >
-                <input type="text" name="description" required placeholder="enter the task">
-                <label for="date">Due date</label>
-                <input type="date" name="date" id="date">
-                <label for="category"> choose a category:</label>
-                <select name="category" id="category">
-                    <option value="work">work</option>
-                    <option value="home">home</option>
-                    <option value="gym">gym</option>
-                    <option value="office">office</option>
-                    <option value="others">others</option>
+                <form action="/create-task" method="post">
+                    <input type="text"  style="font-weight: 700;" name="description" required placeholder="enter the task">
+                    <label for="date" style="font-weight: 700;">Due date</label>
+                    <input type="date" name="date" id="date" >
+                  <span>
+                    <label for="category"  style="font-weight: 700;" > choose a category:</label>
+                    <select name="category" id="category">
+                        <option value="work">work</option>
+                        <option value="home">home</option>
+                        <option value="gym">gym</option>
+                        <option value="office">office</option>
+                        <option value="others">others</option>
 
-                </select>
-                <button id="add"><i class="fas fa-plus-circle"></i></button>
-                <button id="delete"><i class="fas fa-trash"></i></button>
-            </form>
+                    </select>
+                </span>
+                    <button id="add"><i class="fas fa-plus-circle"></i></button>
+
+                </form>
+
+          
+            </div>
+            <div class="index">
+                <span> <i class="fas fa-list-check"></i> task</span> <span id="due"> <i class="fas fa-calendar"></i> due date  </span> <span> <i class="fas fa-code-branch"></i> category</span>
             </div>
             <div class="display-box">
                 <ul>
 
 
 
-                    <!-- <% for(let i of task) { %>
+                    <% for(let i of task) { %>
+                        <div class="task">
+                      <li>
+                            
+                            
+                            
+                       
 
-                        <li><input type="checkbox" name="check" id="tick">
-                            <span id="task"> home work</span> <span id="type"> work</span>
-
-                        </li>
-
+                            <input type="checkbox" onclick="clickme()" name="<%= i._id %>"  id="tick">
+                            <span class="desc"  style="font-weight: 700;" id="desc">
+                                <%=i.description%>
+                            </span>
+                            <span id="due-date"><%=i.date%></span>
+                            <span id="type">
+                               <span id="cat" > <%=i.category%></span>
+                                <span id="trash"> <a href="/delete-task/?id=<%=i._id%>"><i class="fas fa-trash "></i></a></span>
+                            </span>
                      
+                  
+                          
+                          
+                        </li>
+                    </div>
+                     
+ <% } %>
 
-                        <% } %> -->
 
 
 
@@ -62,12 +86,12 @@
 
 
 
-                         
                 </ul>
 
             </div>
         </div>
     </header>
+    <script type="text/javaScript" src="/js/home.js"></script>
 </body>
 
 </html>

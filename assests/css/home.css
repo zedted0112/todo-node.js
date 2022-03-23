@@ -1,12 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;1,100;1,200;1,300&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     list-style: none;
+    font-family: 'Poppins', sans-serif;
+    text-transform: capitalize;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.logo{
+    text-align: center;
 }
 header{
     display: flex;
     flex-direction: column;
+
     align-items: center;
 }
 .container{
@@ -20,25 +31,90 @@ input[type=text]{
  width: 20rem;
  margin-right: .2em;
 }
-#add,#delete{
+#add{
     margin: 5px;
     border: none;
     background-color: transparent;
 }
 .fa-plus-circle{
+    transition: all .3s ease-in-out;
     color: green;
-    font-size:2rem ;
+    font-size:2.5rem ;
 }
-.fa-trash{
+.fa-plus-circle:hover{
     color: red;
-    font-size:2rem ;
+    transform: scale(1.3);
 }
+.index{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: .5rem;
+    border: 1px solid black;
+}
+.index #due{
+    margin-left: 200px;
+}
+.index span{
+    border-right: 1px solid grey;
+}
+
 .display-box{
-  position: relative;
-    padding: 4px;
-    border: 2px solid green;
+    position: relative;
+}
+.display-box li{
+    margin: 10px;
+}
+
+#due-date{
+    color: red;
+    position: absolute;
+    right: 30%;
 }
 #type{
+    font-size: 1rem;
     position: absolute;
-    right:20px;
+    right:10px;
 }
+.complete{
+    background-color: grey;
+    text-decoration: line-through;
+}
+.fa-trash{
+   
+ 
+    color: red;
+    font-size:1rem ;
+}
+.fa-trash:hover{
+    color: blue;
+    transform: scale(1.2);
+
+    
+    
+}
+#trash{
+    margin-left: 8px;
+}
+#cat{
+    color: white;
+   padding: 4px;
+    background-color: green;
+}
+
+/* media */
+
+@media (max-width:670px){
+html{
+    font-size: 70%;
+}
+header{
+flex-direction: row;
+
+}
+
+
+}
+

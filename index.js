@@ -46,7 +46,9 @@ app.get('/', function(req, res){
 
 app.post('/create-task',function(req,res){
 
+
     Task.create({
+        
 
         description:req.body.description,
         category:req.body.category,
@@ -56,10 +58,30 @@ app.post('/create-task',function(req,res){
             console.log("error in creating task");
             return;
         }
-        console.log(newtask);
+   
         return res.redirect('back');
     });
 });
+//delete
+app.get('/delete-task/', function(req,res){
+
+   let id= req.query.id;
+   Task.findByIdAndDelete(id,function(err){
+       if(err){
+           console.log("err");
+           return;
+       }
+       return res.redirect('back');
+   })
+
+   
+    
+    
+    
+    
+    
+    
+    });
 
 
 
