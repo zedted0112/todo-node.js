@@ -2,6 +2,11 @@
 const express= require('express');
 const port= 8000;
 
+//import db
+const db= require('./config/mongoose')
+
+// import schema 
+const Task = require('./models/task')
 
 // calling express
 const app= express();
@@ -22,15 +27,45 @@ app.use(express.urlencoded());
 app.use(express.static('assests'));
 
 
+//render home  page
+app.get('/', function(req, res){
+    Task.find({}, function(err, task){
+        if(err){
+            console.log('Error in fetching tasks from db');
+            return;
+        }
 
-app.get('/',function(req,res){
+        return res.render('home', {
+            title: "Home",
+            task: task
+        });
+    }
+)});
 
-    return res.render('home',{
+// create a task
 
-        title:'home'
-        
+app.post('/create-task',function(req,res){
+
+    Task.create({
+
+        description:req.body.description,
+        category:req.body.category,
+        date:req.body.date
+    },function(err, newtask){
+        if(err){
+            console.log("error in creating task");
+            return;
+        }
+        console.log(newtask);
+        return res.redirect('back');
     });
-})
+});
+
+
+
+
+
+
 
 
 

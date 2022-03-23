@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%=title%></title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>
+        <%=title%>
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/css/home.css">
 </head>
+
 <body>
 
     <header>
@@ -16,9 +22,10 @@
         </div>
         <div class="container">
             <div class="input-box">
+                <form action="/create-task" method="post" >
                 <input type="text" name="description" required placeholder="enter the task">
-               <label for="date">Due date</label>
-                <input type="date" id="date">
+                <label for="date">Due date</label>
+                <input type="date" name="date" id="date">
                 <label for="category"> choose a category:</label>
                 <select name="category" id="category">
                     <option value="work">work</option>
@@ -26,27 +33,41 @@
                     <option value="gym">gym</option>
                     <option value="office">office</option>
                     <option value="others">others</option>
-                    
+
                 </select>
                 <button id="add"><i class="fas fa-plus-circle"></i></button>
                 <button id="delete"><i class="fas fa-trash"></i></button>
+            </form>
             </div>
             <div class="display-box">
-<ul>
+                <ul>
 
-    <li><input type="checkbox" name="check" id="tick">
-  <span id="task"> home work</span> <span id="type"> work</span>
-    
-    </li>
 
-    <li><input type="checkbox" name="check" id="tick">
-        <span id="task"> home work</span> <span id="type"> work</span>
-          
-          </li>
-</ul>
+
+                    <!-- <% for(let i of task) { %>
+
+                        <li><input type="checkbox" name="check" id="tick">
+                            <span id="task"> home work</span> <span id="type"> work</span>
+
+                        </li>
+
+                     
+
+                        <% } %> -->
+
+
+
+
+
+
+
+
+                         
+                </ul>
 
             </div>
         </div>
     </header>
 </body>
+
 </html>
